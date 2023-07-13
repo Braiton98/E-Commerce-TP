@@ -7,6 +7,50 @@ body{
     background: linear-gradient(to right, #DECBA4, #3E5151); 
 }
 
+/* ******************************************************* */
+/* NAV */
+
+.navbar{
+    background: #3e51518f;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav_logo{
+    font-weight: bold;
+    font-size: 20px;
+    margin: 15px;
+    color: white;
+}
+
+.nav_items a{
+    margin: 15px;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+}
+
+.nav_items a::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: all 0.5s;
+}
+
+.nav_items a:hover::before{
+    width: 100% !important;
+}
+
+.nav_toggle{
+    display: none;
+}
+
 h1{
     text-align: center;
     /* color: rgb(238, 203, 108) !important; */
@@ -14,6 +58,9 @@ h1{
 	margin-top: 10px;
 	margin-bottom: 0;
 }
+
+/* ****************************************************************** */
+/* FORM */
 
 .flex-container{
 	display: flex;
@@ -89,4 +136,60 @@ h1{
 
 ::placeholder{
     color: #000;
+}
+
+
+/* MOBILE */
+@media(max-width:501px){
+
+    /* NAV */
+    
+    .nav_items{
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #3e51518f;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        transform: translateX(-100%);
+        transition: 0.3s ease all;
+    }
+
+    .nav_items{
+        text-align: center;
+    }
+
+    .nav_toggle{
+        display: flex !important;
+        flex-direction: column;
+        margin: 15px;
+    }
+
+    .nav_toggle span{
+        width: 30px;
+        height: 4px;
+        background-color: #fff;
+        margin-bottom: 5px;
+        border-radius: 2px;
+        transform-origin: 5px 0px;
+        transition: all 0.2s linear;
+    }
+
+    .close span{
+        transform: rotate(45deg) translate(0px, 0px);
+    }
+
+    .close span:nth-child(2){ 
+        display: none;
+    }
+
+    .close span:nth-child(3){
+        transform: rotate(-45deg) translate(-5px, 1px);
+    }
+
+    .open{
+        transform: translateX(0) !important
+    }
 }
